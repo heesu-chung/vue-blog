@@ -1,11 +1,11 @@
 <template>
     <router-link :to="{name: 'ViewPost', params: {blogid: this.post.blogID}}" class="container">
         <div class="blog-card">
-            <img class="thumbnail" :src="require(`../assets/blogCards/${post.blogCoverPhoto}.jpg`)" alt="">
+            <img class="thumbnail" :src="post.blogCoverPhoto" alt="">
             <div class="info">
                 <div class="info-text">
                     <h3 class="title">Title : {{post.blogTitle}}</h3>
-                    <h6>Posted on: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long"}) }}</h6>
+                    <h6>Posted on: 2011.11.18</h6>
           
                     <router-link class="link" :to="{name: 'ViewPost', params: {blogid: this.post.blogID}}">
                          View The Post <Arrow class="arrow" />
