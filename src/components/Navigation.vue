@@ -13,7 +13,6 @@
               </ul>
           </div>
       </nav>
-      <menuIcon class="menu-icon" v-show="!mobile"/>
       <transition name="mobile-nav">
                   <ul class="mobile-nav" v-show="mobileNav">
                       <router-link class="link" :to="{name: 'ViewPost'}">Create Posts</router-link>
@@ -26,11 +25,6 @@
 
 <script>
 
-import menuIcon from '../assets/Icons/bars-regular.svg';
-/*import userIcon from '../assets/Icons/user-alt-light.svg';
-import adminIcon from '../assets/Icons/user-crown-light.svg';
-import signOutIcon from '../assets/Icons/sign-out-alt-regular.svg';
-*/
 export default {
     name: 'navigation',
     data() {
@@ -41,7 +35,7 @@ export default {
         };
     },
     components: {
-        menuIcon,
+        
     }
 }
 </script>
@@ -51,7 +45,8 @@ export default {
     
 }
 header {
-     background-color: #f1f1f1;
+    position: relative;
+     background-color: #fff;
     z-index: 99;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     

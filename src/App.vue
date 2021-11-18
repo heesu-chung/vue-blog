@@ -10,22 +10,34 @@
 import Navigation from './components/Navigation.vue';
 import Footer from './components/Footer.vue';
 
+
+//import firebase from "firebase/app";
+//import "firebase/auth";
+
 export default {
   name: 'App',
   components: {
     Navigation,
     Footer,
-  }
+  },
+  created() {
+    this.$store.dispatch("getPost");
+  },
+  mounted() {
+  
+  },
+  
 }
 </script>
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 * {
-  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
+}
+.app {
 }
 </style>

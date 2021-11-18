@@ -1,7 +1,7 @@
 <template>
     <div class="blog-card-wrap">
       <div class="blog-cards container">
-          <BlogCard :post="post" v-for="(post, index) in blogPosts" :key="index"/>
+          <BlogCard :post="post" v-for="(post, index) in blogPostsSamples" :key="index"/>
           
       </div>
   </div>
@@ -17,7 +17,7 @@ export default {
     },
     computed: {
         blogPosts() {
-            return this.$store.state.blogPostsSample;
+            return this.$store.state.blogPosts;
         }
     },
     data() {
@@ -33,9 +33,9 @@ export default {
 }
 
 .blog-card-wrap {
-    
-    width: 100%;
-    margin: 0 auto;
+  background-color: #f1f1f1;
+  width: 100%;
+  margin: 0 auto;
   position: relative;
   padding: 50px 24px;
   
@@ -50,7 +50,7 @@ export default {
     row-gap: 30px;
     grid-template-columns: 1fr;
 
-    @media (min-width: 500px) {
+    @media (min-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
     }
     @media (min-width: 900px) {
