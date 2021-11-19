@@ -40,4 +40,13 @@ export default {
 }
 .app {
 }
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+.info {
+  text-decoration: none;
+}
 </style>

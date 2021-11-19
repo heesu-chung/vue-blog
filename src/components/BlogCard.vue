@@ -5,11 +5,7 @@
             <div class="info">
                 <div class="info-text">
                     <h3 class="title">Title : {{post.blogTitle}}</h3>
-                    <h6>Posted on: 2011.11.18</h6>
-          
-                    <router-link class="link" :to="{name: 'ViewPost', params: {blogid: this.post.blogID}}">
-                         View The Post <Arrow class="arrow" />
-                   </router-link>
+                    <h6>Posted on: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long"}) }}</h6>
                 </div>
             </div>
         </div>
@@ -49,18 +45,26 @@ export default {
     }
 
     .thumbnail {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+        display: block;
+        border-radius: 8px 8px 0 0;
         object-fit: cover;
         width: 100%;
-        height: 70%;
+        min-height: 350px;
         background-color: #fff; 
     }
     
     .info {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        z-index: 3;
+        padding: 32px 16px;
+        color: #000;
         .info-text{
             
             h3{
+                display: inline-flex;
+                font-size: 20px;
                 padding: 10px 10px;
                 font-family:Arial, Helvetica, sans-serif;
                 
