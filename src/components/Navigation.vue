@@ -7,7 +7,7 @@
       <nav class="container">
           <div class="nav-links">
               <ul v-show="!mobile" class="menu">
-                  <router-link class="link" :to="{name: 'ViewPost'}">Create Posts</router-link>
+                  <router-link class="link" :to="{name: 'CreatePost'}">Create Posts</router-link>
                   <router-link class="link" :to="{name: 'CreatePost'}">PORTFOLIO</router-link>
                   <router-link class="link" :to="{name: 'About'}">About</router-link>
               </ul>
@@ -15,7 +15,7 @@
       </nav>
       <transition name="mobile-nav">
                   <ul class="mobile-nav" v-show="mobileNav">
-                      <router-link class="link" :to="{name: 'ViewPost'}">Create Posts</router-link>
+                      <router-link class="link" :to="{name: 'CreatePost'}">Create Posts</router-link>
                       <router-link class="link" :to="{name: 'CreatePost'}">PORTFOLIO</router-link>
                       <router-link class="link" :to="{name: 'About'}">About</router-link>
                   </ul>

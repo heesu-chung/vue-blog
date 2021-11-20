@@ -1,24 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-//import firebase from "firebase/app";
-//import "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import db from "../firebase/firebaseInit";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        blogPostsSample: [
-            { blogTitle: "Blog Card #1", blogCoverPhoto: "stock-1", blogDate: "May 1, 2021" },
-            { blogTitle: "Blog Card #2", blogCoverPhoto: "stock-2", blogDate: "May 2, 2021" },
-            { blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate: "May 3, 2021" },
-            { blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate: "May 4, 2021" },
-            { blogTitle: "Blog Card #5", blogCoverPhoto: "stock-1", blogDate: "May 4, 2021" },
-            { blogTitle: "Blog Card #6", blogCoverPhoto: "stock-2", blogDate: "May 4, 2021" },
-            { blogTitle: "Blog Card #7", blogCoverPhoto: "stock-3", blogDate: "May 4, 2021" },
-            { blogTitle: "Blog Card #8", blogCoverPhoto: "stock-4", blogDate: "May 4, 2021" },
-          ],
+   
           editPost: null,
           user: null,
           profileEmail: null,
@@ -42,6 +33,9 @@ export default new Vuex.Store({
 
     },
     mutations: {
+        updateUser(state,payload) {
+          state.user = payload;
+        },
         setBlogState(state,payload) {
             state.blogTitle = payload.blogTitle;
             state.blogHTML = payload.blogHTML;
@@ -71,7 +65,13 @@ export default new Vuex.Store({
           },
     },
     actions: {
- 
+      async getCurrentUser({commit}) {
+        const dataBase = await db.collection('users').doc(firebase.auth().currentUser.uid);
+        const dbResults = await dataBase.get();
+        commit("setProfileInfo", dbResults);
+        commit("setProfileInitials");
+        console.log(dbResults);
+      },
         async getPost({ state }) {
             const dataBase = await db.collection('blogPosts').orderBy('date', 'desc');
             const dbResults = await dataBase.get();

@@ -9,11 +9,23 @@
 
 <script>
 import BlogCard from '../components/BlogCard.vue';
-
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 export default {
     name: 'Home',
     components: {
         BlogCard,
+    },
+    created() {
+      firebase.auth().signInWithEmailAndPassword('a@ddd.com', 'wjd#751953').then(() => {
+                this.$router.push({ name: "Home"});
+                this.error = false;
+                this.errorMsg = "";
+                console.log(firebase.auth().currentUser.uid);
+            }).catch(err => {
+                this.error = true;
+                this.errorMsg = err.message;
+            })
     },
     computed: {
         blogPosts() {
