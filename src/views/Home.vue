@@ -17,15 +17,12 @@ export default {
         BlogCard,
     },
     created() {
-      firebase.auth().signInWithEmailAndPassword('a@ddd.com', 'wjd#751953').then(() => {
-                this.$router.push({ name: "Home"});
-                this.error = false;
-                this.errorMsg = "";
-                console.log(firebase.auth().currentUser.uid);
-            }).catch(err => {
-                this.error = true;
-                this.errorMsg = err.message;
-            })
+      
+            this.$store.dispatch("getPost");
+                    firebase.auth().onAuthStateChanged((user) => {
+      this.$store.commit("updateUser", user);
+      console.log(`onauth`);
+    });
     },
     computed: {
         blogPosts() {

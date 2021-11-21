@@ -2,13 +2,14 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyClchLxp9IqtftF8BLLM98CoCLCFePB9aY",
-  authDomain: "fireblogs-2bad5.firebaseapp.com",
-  projectId: "fireblogs-2bad5",
-  storageBucket: "fireblogs-2bad5.appspot.com",
-  messagingSenderId: "665983356156",
-  appId: "1:665983356156:web:45096f22498df30b9b9b79"
+  apiKey: "AIzaSyAxIIajiofSwJq_TPfQL2G3xDAbBva4bCk",
+  authDomain: "blogs-9bef6.firebaseapp.com",
+  projectId: "blogs-9bef6",
+  storageBucket: "blogs-9bef6.appspot.com",
+  messagingSenderId: "820591015969",
+  appId: "1:820591015969:web:977a354b83ac7c4115cb60"
 };
+
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
