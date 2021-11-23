@@ -10,6 +10,7 @@
                   <router-link class="link" :to="{name: 'CreatePost'}">Create Posts</router-link>
                   <router-link class="link" :to="{name: 'CreatePost'}">PORTFOLIO</router-link>
                   <router-link class="link" :to="{name: 'About'}">About</router-link>
+                  
               </ul>
           </div>
       </nav>
@@ -32,7 +33,26 @@ export default {
             mobile: null,
             mobileNav: null,
             user: true,
+            windownWidth: null,
         };
+    },
+    created() {
+        window.addEventListener('resize', this.checkScreen);
+        this.checkScreen();
+    },
+    methods: {
+        checkScreen() {
+            this.windownWidth = window.innerWidth;
+            if(this.windownWidth <= 750) {
+                this.mobile = true;
+                return;
+            }
+            this.mobile = false;
+            this.mobileNav = false;
+            return;
+        },
+
+
     },
     components: {
         

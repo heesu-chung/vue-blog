@@ -34,6 +34,7 @@
 import Quill from 'quill';
 import "firebase/compat/storage";
 import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import db from "../firebase/firebaseInit";
 
 window.Quill = Quill;
@@ -104,8 +105,7 @@ export default {
                             date: timestamp,
                         });
                         await this.$store.dispatch("getPost");
-                        this.loading = false;
-                        this.$router.push({ name:"ViewBlog",  params: {blogid: dataBase.id}});
+                        this.$router.push({ name: "Home"});
                     }
                     );
                     return;
@@ -118,7 +118,7 @@ export default {
                 return;                
             }
             this.error = true;
-            this.erroMsg = "Please ensure Blog Title & Blog Post has been filled!";
+            this.errorMsg = "Please ensure Blog Title & Blog Post has been filled!";
             setTimeout(() => {
                 this.error = false;
             }, 5000);

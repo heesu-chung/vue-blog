@@ -4,6 +4,8 @@ import Home from '../views/Home.vue';
 import CreatePost from '../views/CreatePost.vue';
 import ViewPost from '../views/ViewPost.vue';
 import About from '../views/About.vue';
+import Login from '../views/Login.vue';
+import Register from '../views/Register.vue';
 Vue.use(VueRouter);
 
 const routes = [
@@ -26,6 +28,16 @@ const routes = [
         path: "/about",
         name: "About",
         component : About,
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component : Login,
+    },
+    {
+        path: "/register",
+        name: "Register",
+        component : Register,
     },
 ];
 
