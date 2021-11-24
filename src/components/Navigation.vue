@@ -6,9 +6,10 @@
           
       <nav class="container">
           <div class="nav-links">
-              <ul v-show="!mobile" class="menu">
-                  <router-link class="link" :to="{name: 'CreatePost'}">Create Posts</router-link>
-                  <router-link class="link" :to="{name: 'CreatePost'}">PORTFOLIO</router-link>
+              <!--ul v-show="!mobile" class="menu"-->
+              <ul  class="menu">
+                  <router-link class="link" :to="{name: 'CreatePost'}">Create Post</router-link>
+                  <router-link class="link" :to="{name: 'CreatePost'}">PORTFOLIO+</router-link>
                   <router-link class="link" :to="{name: 'About'}">About</router-link>
                   
               </ul>
@@ -16,8 +17,8 @@
       </nav>
       <transition name="mobile-nav">
                   <ul class="mobile-nav" v-show="mobileNav">
-                      <router-link class="link" :to="{name: 'CreatePost'}">Create Posts</router-link>
-                      <router-link class="link" :to="{name: 'CreatePost'}">PORTFOLIO</router-link>
+                      <router-link class="link" :to="{name: 'CreatePost'}">Create Post</router-link>
+                      <router-link class="link" :to="{name: 'CreatePost'}">PORTFOLIO+</router-link>
                       <router-link class="link" :to="{name: 'About'}">About</router-link>
                   </ul>
         </transition>              
@@ -61,21 +62,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 *{
-    
+    font-family: 'Open Sans', sans-serif;
 }
 header {
     position: relative;
-     background-color: #fff;
+    width: 100%;
+    height: 100px;
+    
     z-index: 99;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    background-color: #fbf6f2;
+    //box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     
     .logo {
         position: absolute;
         padding: 0 20px;
         .header {
                 cursor: pointer;
-                font-size: 2rem;
+                font-size: 15px;
                 font-weight: 700;
                 color: #000;
                 text-decoration: none; 
@@ -93,32 +98,39 @@ header {
         }    
     }
     .container {
-        padding: 10px 0;
+        
+        padding: 40px 0;
         display: flex;
         width: 100%;
         
         .nav-links {
-            width: 100%;
+            width: 60%;
             display: flex;
             flex: 1;
+            
             align-items: center;
             justify-content: center;
             .menu {
+                letter-spacing: 5px;
                 cursor: pointer;
                 text-decoration: none;
+                
                 &:hover {
                     color: #000;
                 }
 
                 .link {
-                    padding: 0 20px;
-                    font-weight: 500;
+                    //border: 1px solid black;
+            
+                    padding: 0 30px;
+                    font-size: 12px;
                     text-decoration: none;
                     color: #bbb;
                     transition: .3s ease all;
                     &:hover {
                         color: #000;
                     }
+                    
                 }
             }
 
@@ -132,9 +144,6 @@ header {
             }
         }
 
-        .mobile-nav {
-
-        }
     }
 }
 </style>

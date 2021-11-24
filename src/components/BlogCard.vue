@@ -23,14 +23,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-*{
-    
-}
+
 .container {
     display: flex;
     justify-content: center;
 .blog-card {
-    width: 90%;
+    width: 100%;
     height: 100%;
     position: relative;
     cursor: pointer;

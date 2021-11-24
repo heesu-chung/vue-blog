@@ -16,7 +16,7 @@ export default {
     components: {
         BlogCard,
     },
-    created() {
+        created() {
       
             this.$store.dispatch("getPost");
                     firebase.auth().onAuthStateChanged((user) => {
@@ -38,11 +38,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-* {
-}
+
 
 .blog-card-wrap {
-  background-color: #f1f1f1;
+  background-color: #fbf6f2;
   width: 100%;
   margin: 0 auto;
   position: relative;
