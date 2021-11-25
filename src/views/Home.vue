@@ -16,7 +16,7 @@ export default {
     components: {
         BlogCard,
     },
-        created() {
+    created() {
       
             this.$store.dispatch("getPost");
                     firebase.auth().onAuthStateChanged((user) => {
@@ -53,6 +53,9 @@ export default {
   }
 
   .blog-cards {
+    
+    margin: 0 auto;
+    margin-top: 100px;
     display: grid;
     gap: 16px;
     row-gap: 30px;
@@ -66,6 +69,10 @@ export default {
     }
     @media (min-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .container {
+    
     }
   }
 }

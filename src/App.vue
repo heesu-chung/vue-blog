@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <Navigation />
+    <Navigation class="navigation"/>
     <router-view />
-    <Footer />
+    <Footer class="footer"/>
   </div>
 </template>
 
@@ -39,8 +39,11 @@ export default {
   box-sizing: border-box;
 }
 .app {
-  background: #fff;
+  .navigation{
+    
+  }
 }
+
 .link {
   cursor: pointer;
   text-decoration: none;

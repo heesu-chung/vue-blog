@@ -1,13 +1,16 @@
 <template>
     <router-link :to="{name: 'ViewPost', params: {blogid: this.post.blogID}}" class="container">
         <div class="blog-card">
-            <img class="thumbnail" :src="post.blogCoverPhoto" alt="">
             <div class="info">
                 <div class="info-text">
-                    <h3 class="title">Title : {{post.blogTitle}}</h3>
+                    <h6 class="category">Category</h6>
+                    <h3 class="title" >{{post.blogTitle}}</h3>
+                    <h5 class="content" v-html="post.blogHTML"></h5>
                     <h6>Posted on: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long"}) }}</h6>
                 </div>
             </div>
+            <img class="thumbnail" :src="post.blogCoverPhoto" alt="">
+            
         </div>
     </router-link>
 </template>
@@ -23,58 +26,85 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,400&display=swap');
 
+*{
+    
+}
 .container {
+    border-top: 3px solid #666;
     display: flex;
     justify-content: center;
-.blog-card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    transition: .3s ease all;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0, 0,0,0.06);
-    background-color: #fff;
-    &:hover {
-        opacity: 50%;
-    }
+    text-decoration: none; // text-decoration: none with link
 
-    .thumbnail {
-        display: block;
-        border-radius: 8px 8px 0 0;
-        object-fit: cover;
+    .blog-card {
         width: 100%;
-        min-height: 350px;
-        background-color: #fff; 
-    }
-    
-    .info {
+        height: 300px;
+        position: relative;
+        cursor: pointer;
         display: flex;
         flex-direction: column;
-        height: 100%;
-        z-index: 3;
-        padding: 32px 16px;
-        color: #000;
-        .info-text{
+        transition: .3s ease all;
+        &:hover {
+            opacity: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0, 0,0,0.06);
             
-            h3{
-                display: inline-flex;
-                font-size: 20px;
-                padding: 10px 10px;
-                font-family:Arial, Helvetica, sans-serif;
+        }
+
+        .thumbnail {
+            position: absolute;
+            opacity: 0%;
+            width: 100%;
+            object-fit: cover;
+            height: 300px;
+            transition: .5s all ease;
+            &:hover {
+                opacity: 30%;
                 
             }
-            h6{
-                padding: 10px 10px;
-                font-family:Arial, Helvetica, sans-serif;
-                color: #999;
-                font-weight: 300;
+        }
+        
+        .info {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            color: #666;
+            
+            .info-text{
+                padding: 0 12px;
+                padding-top: 50px;
+                .category {
+                    
+                }
+
+                .title{
+                    border: 1px solid black;
+                    width: 100%;
+                   
+                    display: inline-flex;
+                    font-size: 40px;
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 800;
+
+                    transition: .3s ease all;
+                    @media(max-width: 700px) {
+                        font-size: 30px;
+                    }
+                }
+                h5{
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 400;
+                    font-style: italic;
+                }
+                h6{
+                    font-family:Arial, Helvetica, sans-serif;
+                    color: #999;
+                    font-weight: 300;
+                }
             }
         }
     }
-}
 }
 </style>

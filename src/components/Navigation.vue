@@ -67,42 +67,47 @@ export default {
     font-family: 'Open Sans', sans-serif;
 }
 header {
-    position: relative;
-    width: 100%;
-    height: 100px;
-    
-    z-index: 99;
     background-color: #fbf6f2;
+
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    z-index: 99;
+    
     //box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     
     .logo {
-        position: absolute;
-        padding: 0 20px;
+        width: 100%;
+        position: fixed;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        padding-top: 15px;
         .header {
                 cursor: pointer;
-                font-size: 15px;
+                font-size: 1.8rem;
                 font-weight: 700;
                 color: #000;
                 text-decoration: none; 
                 transition: .3s ease-in-out all;
                 
             @media(max-width:700px) {
-                font-size: 1.4rem;
-                position: absolute;
+                font-size: 1.8rem;
                 padding: 7px 0px;
             }    
 
             &:hover {
-                color: lightcoral;
+                color: #46759b;
             }
         }    
     }
     .container {
-        
-        padding: 40px 0;
+        margin-top: 80px;
+        padding-bottom: 15px;
+        position: fixed;
         display: flex;
         width: 100%;
-        
+        background-color: #fbf6f2;
         .nav-links {
             width: 60%;
             display: flex;
@@ -128,7 +133,11 @@ header {
                     color: #bbb;
                     transition: .3s ease all;
                     &:hover {
-                        color: #000;
+                        color: #46759b;
+                    }
+
+                    @media(max-width: 700px) {
+                        font-size: 10px;
                     }
                     
                 }
