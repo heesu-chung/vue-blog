@@ -68,14 +68,10 @@ export default {
 }
 header {
     background-color: #fbf6f2;
-
     position: fixed;
     width: 100%;
     height: 80px;
     z-index: 99;
-    
-    //box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    
     .logo {
         width: 100%;
         position: fixed;
@@ -108,6 +104,12 @@ header {
         display: flex;
         width: 100%;
         background-color: #fbf6f2;
+        transition: .5s all ease;
+        &:hover{
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    
+        }
+        
         .nav-links {
             width: 60%;
             display: flex;

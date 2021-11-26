@@ -5,7 +5,7 @@
               <p><span>Error:</span>{{this.errorMsg}}</p>
           </div>
         <div class="blog-info">
-          <input type="text" placeholder="Title Here!" v-model="blogTitle">
+          <input type="text" placeholder="Title Here!" v-model="blogTitle" class="title">
           <div class="upload-img">
             <label for="blog-photo">Cover Upload</label>
             <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpeg, .jpg, .gif">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="blog-actions">
-          <button @click="uploadBlog">Publish</button>
+          <button class="btn" @click="uploadBlog">PUBLISH</button>
           
         </div>
       </div>
@@ -108,6 +108,7 @@ export default {
                         this.$router.push({ name: "Home"});
                     }
                     );
+    
                     return;
                }
                 this.error = true;
@@ -153,5 +154,67 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+*{
 
+}
+.create-post {
+  padding-top: 130px;
+   background-color: #fbf6f2;
+  .container{
+    width: 800px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+
+    @media(max-width: 800px) {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .err-message{
+      margin-bottom: 20px;
+      padding-left: 10px;
+      color: #aaa;
+
+    }
+    .blog-info{
+      .title {
+         background-color: #fbf6f2;
+        border: none;
+        border-bottom: 1px solid black;
+        width: 100%;
+        font-size: 20px;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+      .upload-img{
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        label {
+          font-size: 12px;
+          font-weight: 700;
+          color: #aaa;
+          margin-right: 12px;
+          margin-bottom: 10px;
+        }
+        input {
+          margin-bottom: 10px;
+        }
+        span {
+          display: none;
+        }
+      }
+      
+      .editor {
+
+      }
+
+      .blog-actions {
+        .btn {
+          border: 3px solid black;
+        }
+      }
+    }
+  }
+}
 </style>

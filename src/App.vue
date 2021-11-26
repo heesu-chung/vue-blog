@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Navigation class="navigation"/>
-    <router-view />
+    <router-view class="content" />
     <Footer class="footer"/>
   </div>
 </template>
@@ -39,9 +39,10 @@ export default {
   box-sizing: border-box;
 }
 .app {
-  .navigation{
-    
-  }
+
+}
+.content {
+  
 }
 
 .link {
